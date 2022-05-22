@@ -15,7 +15,7 @@ int parse_int(const char* arg) {
 int main(int argc,char** argv) {
     int time;
     if (argc != 2) {
-        printf("you must input one argument only\n");
+        fprintf(2, "you must input one argument only\n");
         exit(0);
     } 
     

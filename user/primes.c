@@ -3,8 +3,9 @@
 #include "user/user.h"
 
 
+    int arry[1000];
 int main(int argc,char** argv){
-    int arry[500];
+    printf("%p\n",&argc);
     int p[2];
     int index = 0;
     for (int i = 2; i < 500; i++)
