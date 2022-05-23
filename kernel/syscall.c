@@ -133,7 +133,7 @@ void
 syscall(void)
 {
   int num;
-  struct proc *p = myproc();
+  struct proc *p = myproc();// Return the current struct proc *,or zero if none.
 
   num = p->trapframe->a7;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {

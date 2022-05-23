@@ -13,6 +13,7 @@ main(int argc, char *argv[])
     fprintf(2, "Usage: %s mask command\n", argv[0]);
     exit(1);
   }
+  printf("1:%c\n2:%c\n3:%s\n",argv[1][0],argv[1][1],argv[1]);
 
   if (trace(atoi(argv[1])) < 0) {
     fprintf(2, "%s: trace failed\n", argv[0]);
