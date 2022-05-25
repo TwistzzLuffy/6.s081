@@ -282,6 +282,7 @@ fork(void)
   }
 
   // Copy user memory from parent to child.
+  np->tid = p->tid;//copy the trace mask from the parent to the child process.
   if(uvmcopy(p->pagetable, np->pagetable, p->sz) < 0){
     freeproc(np);
     release(&np->lock);

@@ -99,5 +99,7 @@ sys_uptime(void)
 uint64
 sys_trace(void)
 {
-  
+  if(argint(0, &myproc()->tid) < 0)
+    return -1;  
+  return 0; 
 }
