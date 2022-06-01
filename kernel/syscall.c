@@ -7,7 +7,7 @@
 #include "syscall.h"
 #include "defs.h"
 
-#define M 22 //the number of syscall
+#define M 23 //the number of syscall
 // Fetch the uint64 at addr from the current process.
 int
 fetchaddr(uint64 addr, uint64 *ip)
@@ -106,6 +106,7 @@ extern uint64 sys_wait(void);
 extern uint64 sys_write(void);
 extern uint64 sys_uptime(void);
 extern uint64 sys_trace(void);
+extern uint64 sys_sysinfo(void);
 
 static uint64 (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -130,11 +131,13 @@ static uint64 (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_trace]   sys_trace,
+[SYS_sysinfo] sys_sysinfo,
 };
 static char *sysArry[M] = {
   "fork","exit","wait","pipe","read","kill","exec","fstat",
   "chdir","dup","getpid","sbrk","sleep","uptime","open",
-  "write","mknod","unlink","link","mkdir","close","trace"
+  "write","mknod","unlink","link","mkdir","close","trace",
+  "sysinfo"
 };
 void
 syscall(void)
