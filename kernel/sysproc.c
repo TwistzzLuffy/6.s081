@@ -59,7 +59,6 @@ sys_sleep(void)
   int n;
   uint ticks0;
 
-
   if(argint(0, &n) < 0)
     return -1;
   acquire(&tickslock);
@@ -81,7 +80,40 @@ int
 sys_pgaccess(void)
 {
   // lab pgtbl: your code here.
-  return 0;
+  uint64 va;
+  uint64 kabits;
+  int n;
+  struct proc* p = myproc(); 
+  uint64 buff = 0;
+  if(argaddr(0, &va) < 0)
+    return -1;
+  if(argint(1, &n) < 0)
+    return -1;
+  if(argaddr(2, &kabits) < 0)
+    return -1;
+
+  if(n > 512)
+    panic("too many");
+
+  pte_t *pte;
+  int i = 0;
+  for(; i < n; i++){
+    pte = walk(p->pagetable, va, 1); 
+    // printf("pte : %p\n",*pte);
+    if (pte){
+      if(*pte & PTE_A){
+        *pte &= (~PTE_A);
+        buff |= (1L<<i);
+      }     
+    }
+
+    va += PGSIZE;
+  }
+  // printf("i: %d\n",i);
+  if(copyout(p->pagetable, kabits, (char*)&buff, sizeof(buff)) < 0)
+   return -1;
+
+ return 0;
 }
 #endif
 
