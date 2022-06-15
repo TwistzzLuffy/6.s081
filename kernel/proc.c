@@ -528,6 +528,8 @@ forkret(void)
 void
 sleep(void *chan, struct spinlock *lk)
 {
+ 
+
   struct proc *p = myproc();
   
   // Must acquire p->lock in order to
@@ -552,6 +554,7 @@ sleep(void *chan, struct spinlock *lk)
   // Reacquire original lock.
   release(&p->lock);
   acquire(lk);
+
 }
 
 // Wake up all processes sleeping on chan.

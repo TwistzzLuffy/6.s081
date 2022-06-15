@@ -1,0 +1,46 @@
+Which registers contain arguments to functions? For example, which register holds 13 in main's call to printf?
+
+a2
+
+Where is the call to function f in the assembly code for main? Where is the call to g? (Hint: the compiler may inline functions.)
+
+27 14 
+
+
+At what address is the function printf located?
+
+628
+
+What value is in the register ra just after the jalr to printf in main?
+
+ra = pc+ 4  = 4501
+
+Run the following code.
+
+	unsigned int i = 0x00646c72;
+	printf("H%x Wo%s", 57616, &i);
+What is the output?(RISC-V is little-endian)
+57616 -> E110
+72 -> r; 6c -> l; 64 -> d;
+
+in big_endian
+57616 don't change
+0x00726c64;
+
+
+printf("x=%d y=%d", 3);
+what happen after y=%d ? 
+
+x=3 y=1
+usertrap(): unexpected scause 0x000000000000000f pid=3
+            sepc=0x0000000000000100 stval=0x0000000000001000
+
+
+
+
+
+
+
+
+
+
