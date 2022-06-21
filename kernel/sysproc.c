@@ -85,10 +85,13 @@ sys_pgaccess(void)
   int n;
   struct proc* p = myproc(); 
   uint64 buff = 0;
+  //starting virtual address of the first user page
   if(argaddr(0, &va) < 0)
     return -1;
+  //the number of pages to check
   if(argint(1, &n) < 0)
     return -1;
+  //a user address to a buffer
   if(argaddr(2, &kabits) < 0)
     return -1;
 
