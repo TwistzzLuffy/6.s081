@@ -97,7 +97,7 @@ consoleread(int user_dst, uint64 dst, int n)
     }
 
     c = cons.buf[cons.r++ % INPUT_BUF];
-
+// @ -> 64 D -> 68
     if(c == C('D')){  // end-of-file
       if(n < target){
         // Save ^D for next time, to make sure
