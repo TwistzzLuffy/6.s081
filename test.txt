@@ -1,0 +1,34 @@
+OK
+test manywrites: OK
+test execout: OK
+test copyin: OK
+test copyout: OK
+test copyinstr1: OK
+test copyinstr2: OK
+test copyinstr3: OK
+test rwsbrk: OK
+test truncate1: OK
+test truncate2: OK
+test truncate3: OK
+test reparent2: scause 0x000000000000000d
+sepc=0x000000008000012c stval=0x0505050505050505
+panic: kerneltrap
+###############################
+kfree lack locks
+test manywrites: 12323
+OK
+test execout: 
+OK
+test copyin: OK
+test copyout: OK
+test copyinstr1: OK
+test copyinstr2: OK
+test copyinstr3: OK
+test rwsbrk: OK
+test truncate1: OK
+test truncate2: OK
+test truncate3: OK
+test reparent2: scause 0x000000000000000d
+sepc=0x000000008000011c stval=0x0505050505050505
+panic: kerneltrap
+
