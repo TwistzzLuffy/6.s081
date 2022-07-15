@@ -525,6 +525,7 @@ namecmp(const char *s, const char *t)
 
 // Look for a directory entry in a directory.
 // If found, set *poff to byte offset of entry.
+//inode size : the number of bytes of content in the ﬁle
 struct inode*
 dirlookup(struct inode *dp, char *name, uint *poff)
 {
