@@ -281,10 +281,11 @@ QEMUGDB = $(shell if $(QEMU) -help | grep -q '^-gdb'; \
 	then echo "-gdb tcp::$(GDBPORT)"; \
 	else echo "-s -p $(GDBPORT)"; fi)
 ifndef CPUS
-CPUS := 3
+CPUS := 1 
 endif
-ifeq ($(LAB),fs)
-CPUS := 1
+ifeq ($(lab),fs)
+cpus := 1
+
 endif
 
 FWDPORT = $(shell expr `id -u` % 5000 + 25999)
@@ -407,3 +408,4 @@ myapi.key:
 
 
 .PHONY: handin tarball tarball-pref clean grade handin-check
+
