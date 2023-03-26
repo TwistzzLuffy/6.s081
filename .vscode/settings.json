@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "istream": "c",
+        "locale": "c",
+        "*.tcc": "c",
+        "iosfwd": "c",
+        "limits": "c",
+        "sstream": "c",
+        "stop_token": "c",
+        "streambuf": "c"
+    }
+}
